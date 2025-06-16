@@ -14,8 +14,7 @@ async def echo(message: types.Message):
     await message.answer(f"Echo: {message.text}")
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True
-@dp.message_handler(state=OrderState.order_number)
+    executor.start_polling(dp, skip_updates=True)@dp.message_handler(state=OrderState.order_number)
 async def set_order_number(message: types.Message, state: FSMContext):
     if message.text != "Пропустити":
         await state.update_data(order_number=message.text)
